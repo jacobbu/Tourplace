@@ -1,0 +1,13 @@
+<%= image_tag @zone.image.url %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @zone.description %>
+</p>
+
+<% if @zone.user == current_user %>
+	<%= link_to 'Edit', edit_zone_path(@zone) %> |
+<% end %>
+<%= link_to 'Back', zones_path %>

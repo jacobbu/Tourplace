@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  resources :zones
+
   devise_for :users
   root "pages#home"
   get "about" => "pages#about"
   get "places" => "pages#places"
+  get "states" => "pages#states"
+  get "utah" => "pages#utah"
+  get "idaho" => "pages#idaho"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

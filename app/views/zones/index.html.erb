@@ -1,0 +1,31 @@
+<h1>Listing zones</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zones.each do |zone| %>
+      <tr>
+        <td><%= zone.description %></td>
+        <td><%= zone.user.email if zone.user %></td>
+        <td><%= link_to 'Show', zone %></td>
+          <% if zone.user == current_user %>
+            <td><%= link_to 'Edit', edit_zone_path(zone) %></td>
+            <td><%= link_to 'Destroy', zone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Zone', new_zone_path %>
+<% end %>
